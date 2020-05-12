@@ -1,32 +1,67 @@
 document.addEventListener('DOMContentLoaded', startGame)
 
-// Define your `board` object here!
-// var board = 
+var board = {}
 
-function startGame () {
-  // Don't remove this function call: it makes the game work!
-  lib.initBoard()
+function boardCreator(board) {
+board.cells = [];
+newCell = 0;
+
+for (var i = 0; i < 6; i++) {
+  for (var j = 0; j < 6; j++) {
+    board.cells[newCell] = {};
+    board.cells[newCell].row = i;
+    board.cells[newCell].col = j;
+    board.cells[newCell].isMine = (Math.random() >= 0.75);
+    board.cells[newCell].hidden = true;
+    newCell++
+    
+    }
+  }
 }
 
-// Define this function to look for a win condition:
-//
-// 1. Are all of the cells that are NOT mines visible?
-// 2. Are all of the mines marked?
+boardCreator(board);
+
+
+
+ function startGame() {
+  for (i=0 ; i<board.cells.length ; i++) {
+      board.cells[i].surroundingMines = countSurroundingMines(board.cells[i])
+  }
+  lib.initBoard() 
+}
+
+
+
+document.onclick = checkForWin;
+window.oncontextmenu = checkForWin;
+
+
+
+
 function checkForWin () {
-
-  // You can use this function call to declare a winner (once you've
-  // detected that they've won, that is!)
-  //   lib.displayMessage('You win!')
+  var theyWon = true
+  for (var i = 0; i < board.cells.length; i++) {
+    var cell = board.cells[i]
+    if (cell.isMine && !cell.isMarked) {
+    theyWon = false
+  }
+  }
+if (theyWon) {
+    lib.displayMessage('You win!');
+    }
 }
 
-// Define this function to count the number of mines around the cell
-// (there could be as many as 8). You don't have to get the surrounding
-// cells yourself! Just use `lib.getSurroundingCells`: 
-//
-//   var surrounding = lib.getSurroundingCells(cell.row, cell.col)
-//
-// It will return cell objects in an array. You should loop through 
-// them, counting the number of times `cell.isMine` is true.
+
+
+
 function countSurroundingMines (cell) {
+  var count = 0;
+  var surroundingCells = getSurroundingCells(cell.row, cell.col);
+  for (c = 0 ; c < surroundingCells.length ; c++) {
+      if (surroundingCells[c].isMine) {
+          count++
+      }
+  }
+  return count;
 }
 

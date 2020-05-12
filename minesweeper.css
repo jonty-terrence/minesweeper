@@ -8,7 +8,13 @@ body {
   align-items: center;
   justify-content: flex-center;
   flex-direction: column;
+  background: url("images/building.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
+
 
 #message, #notes {
   display: flex;
@@ -23,6 +29,7 @@ body {
 .board {
   display: flex;
   flex-wrap: wrap;
+  padding: 10px;
 }
 
 .board div {
@@ -57,4 +64,13 @@ div.hidden:hover {
 
 div.marked, div.marked:hover {
   background: no-repeat center/60% url("images/mark.svg") deepskyblue;
+}
+
+
+#button {
+  padding: 14px 40px;
+  font-size: 20px;
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50; 
 }
