@@ -31,7 +31,6 @@ body {
   display: flex;
   flex-wrap: wrap;
   padding: 10px;
-  background-color: #ff71ce;
   border: ridge;
   border-color: #ff71ce;
   justify-content: center;
@@ -60,15 +59,15 @@ div.mine, div.mine:hover {
 }
 
 div.hidden {
-  background: #0674F8;
+  background: #ff71ce;
 }
 
 div.hidden:hover {
-  background: #fffb96;
+  background: #049BF4;
 }
 
 div.marked, div.marked:hover {
-  background: no-repeat center/60% url("images/mark.svg") grey;
+  background: no-repeat center/60% url("images/mark.svg") #fffb96;
 }
 
 
