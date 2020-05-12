@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', startGame)
 
 var board = {}
 
+
 function boardCreator(board) {
 board.cells = [];
 newCell = 0;
@@ -28,6 +29,7 @@ boardCreator(board);
       board.cells[i].surroundingMines = countSurroundingMines(board.cells[i])
   }
   lib.initBoard() 
+  playTheme();
 }
 
 
@@ -48,6 +50,9 @@ function checkForWin () {
   }
 if (theyWon) {
     lib.displayMessage('You win!');
+    let music = new Audio("./music/gato-wishing.mp3");
+    music.volume = 0.9;
+    music.play();
     }
 }
 
@@ -64,4 +69,5 @@ function countSurroundingMines (cell) {
   }
   return count;
 }
+
 
