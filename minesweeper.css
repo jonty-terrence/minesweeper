@@ -1,6 +1,6 @@
 html, body {
   height: 100%;
-  font-family: 'Open Sans', sans-serif
+  font-family: 'Orbitron', sans-serif;
 }
 
 body {
@@ -24,12 +24,17 @@ body {
 
 #message {
   font-size: 1.5rem;
+  color: white;
 }
 
 .board {
   display: flex;
   flex-wrap: wrap;
   padding: 10px;
+  background-color: #ff71ce;
+  border: ridge;
+  border-color: #ff71ce;
+  justify-content: center;
 }
 
 .board div {
@@ -70,7 +75,9 @@ div.marked, div.marked:hover {
 #button {
   padding: 14px 40px;
   font-size: 20px;
-  background-color: white;
-  color: black;
-  border: 2px solid #4CAF50; 
+  background-color: #ff71ce;
+  color: #01cdfe;
+  border: 2px solid #ff71ce; 
+  font-family: 'Orbitron', sans-serif;
+  justify-content: center;
 }
